@@ -1,5 +1,5 @@
 <?php
-
+use App\Filme;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,15 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
+
     return view('filmes');
 });
+*/
+Route::get('/', function () {
+    $filmes = Filme::orderBy('created_at', 'asc')->get();
 
-Route::post('/filme', function(Request $request){
-
+    return view('filmes', [
+        'filmes' => $filmes
+    ]);
 });
+Route::post('/filme', 'FilmeController@create');
 
-Route::delete('/task/{id}', function ($id) {
-    //
-});
+Route::get('/filme/{id}', 'FilmeController@delete');
