@@ -76,7 +76,10 @@
 
                         <!-- Table Headings -->
                         <thead>
-                            <th>Filme</th>
+                            <th>Titulo</th>
+                            <th>Genero</th>
+                            <th>Sinopse</th>
+                            <th>Duração</th>
                             <th>&nbsp;</th>
                         </thead>
 
@@ -88,9 +91,23 @@
                                     <td class="table-text">
                                         <div>{{ $filme->titulo }}</div>
                                     </td>
+                                    <td class="table-text">
+                                        <div>{{ $filme->genero }}</div>
+                                    </td>
+                                    <td class="table-text">
+                                        <div>{{ $filme->sinopse }}</div>
+                                    </td>
+                                    <td class="table-text">
+                                        <div>{{ $filme->duracao }}</div>
+                                    </td>
 
                                     <td>
-                                        <form action="/filme/{{ $filme->id }}" method="GET">
+                                        <form action="/filme/edit/{{ $filme->id }}" method="GET">
+                                             <button>Editar</button>
+                                         </form>
+                                    </td>
+                                    <td>
+                                        <form action="/filme/delete/{{ $filme->id }}" method="GET">
 
                                              <button>Delete</button>
                                          </form>

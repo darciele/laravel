@@ -23,6 +23,7 @@ Route::get('/', function () {
         'filmes' => $filmes
     ]);
 });
+//Route::get('/', 'FilmeController@index');
 Route::post('/filme', 'FilmeController@create');
-
-Route::get('/filme/{id}', 'FilmeController@delete');
+Route::get('/filme/edit/{id}', 'FilmeController@edit');
+Route::get('/filme/delete/{id}', 'FilmeController@delete');
