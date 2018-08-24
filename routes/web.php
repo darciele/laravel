@@ -16,14 +16,10 @@ Route::get('/', function () {
     return view('filmes');
 });
 */
-Route::get('/', function () {
-    $filmes = Filme::orderBy('created_at', 'asc')->get();
-
-    return view('filmes', [
-        'filmes' => $filmes
-    ]);
-});
-//Route::get('/', 'FilmeController@index');
+//Rotas de filmes
+Route::get('/', 'FilmeController@index');
 Route::post('/filme', 'FilmeController@create');
 Route::get('/filme/edit/{id}', 'FilmeController@edit');
 Route::get('/filme/delete/{id}', 'FilmeController@delete');
+Route::post('/filme/salvar/{id}', 'FilmeController@salvar');
+//Rotas de sessões
